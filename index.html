@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JS Code Visualizer</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>/* Critical CSS for skeleton loader */
+    .skeleton-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0d1117;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+    }
+    .skeleton-loader.hidden {
+      display: none;
+    }
+    .skeleton-header {
+      height: 140px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      padding: 20px;
+    }
+    .skeleton-title {
+      width: 300px;
+      height: 32px;
+      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      border-radius: 4px;
+      margin: 0 auto 12px;
+    }
+    .skeleton-subtitle {
+      width: 400px;
+      height: 16px;
+      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      border-radius: 4px;
+      margin: 0 auto 20px;
+    }
+    .skeleton-controls {
+      width: 200px;
+      height: 36px;
+      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      border-radius: 4px;
+      margin: 0 auto;
+    }
+    .skeleton-main {
+      display: flex;
+      flex: 1;
+      gap: 16px;
+      padding: 16px;
+      overflow: hidden;
+    }
+    .skeleton-editor {
+      flex: 1;
+      background: #161b22;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .skeleton-editor-bar {
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .skeleton-editor-content {
+      width: 100%;
+      height: calc(100% - 52px);
+      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      border-radius: 4px;
+    }
+    .skeleton-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+    }
+    .skeleton-panel {
+      background: #161b22;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .skeleton-panel-header {
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .skeleton-panel-content {
+      width: 100%;
+      height: calc(100% - 52px);
+      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+      border-radius: 4px;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }</style><script defer="defer" src="bundle.js"></script></head><body><div id="skeleton-loader" class="skeleton-loader"><div class="skeleton-header"><div class="skeleton-title"></div><div class="skeleton-subtitle"></div><div class="skeleton-controls"></div></div><div class="skeleton-main"><div class="skeleton-editor"><div class="skeleton-editor-bar"></div><div class="skeleton-editor-content"></div></div><div class="skeleton-grid"><div class="skeleton-panel"><div class="skeleton-panel-header"></div><div class="skeleton-panel-content"></div></div><div class="skeleton-panel"><div class="skeleton-panel-header"></div><div class="skeleton-panel-content"></div></div><div class="skeleton-panel"><div class="skeleton-panel-header"></div><div class="skeleton-panel-content"></div></div><div class="skeleton-panel"><div class="skeleton-panel-header"></div><div class="skeleton-panel-content"></div></div></div></div></div><div class="app-container"><header class="header"><h1 class="header__title"><span class="header__icon">⚡</span> JS Code Visualizer</h1><p class="header__subtitle">Step-by-step JavaScript execution visualization</p><div class="header__controls"><label for="panel-selector" class="panel-selector-label">Display Panels:</label><div class="panel-selector-wrapper"><button id="panel-selector-btn" class="panel-selector-btn"><span id="panel-selector-text">Variables</span> <span class="dropdown-arrow">▼</span></button><div id="panel-selector-dropdown" class="panel-selector-dropdown" style="display: none;"><label class="panel-option"><input type="checkbox" value="variables" checked="checked"> <span>📊 Variables</span></label> <label class="panel-option"><input type="checkbox" value="callstack"> <span>📚 Call Stack</span></label> <label class="panel-option"><input type="checkbox" value="array"> <span>📈 Array View</span></label> <label class="panel-option"><input type="checkbox" value="tree"> <span>🌳 Recursion Tree</span></label> <label class="panel-option"><input type="checkbox" value="console"> <span>🖥️ Console Output</span></label> <label class="panel-option"><input type="checkbox" value="performance"> <span>⚡ Performance</span></label><div class="panel-selector-info">Select up to 4 panels to display</div></div></div></div></header><main class="main-content"><section class="panel panel--editor"><div class="panel__header"><h2 class="panel__title">📝 Code</h2><div class="panel__controls"><select id="preset-select" class="select"><option value="bubble-sort">Bubble Sort</option><option value="merge-sort">Merge Sort</option><option value="quicksort">Quicksort</option><option value="binary-search">Binary Search</option><option value="fibonacci">Fibonacci (Recursive)</option><option value="factorial">Factorial (Recursive)</option><option value="tree-traversal">Binary Tree Traversal</option><option value="custom">✏️ Custom Code</option></select></div></div><div class="panel__body"><div id="code-editor" class="code-editor"></div></div></section><section class="visualization-grid visualization-grid--maximized"><div class="panel panel--variables panel--maximized" data-panel="variables"><div class="panel__header"><h2 class="panel__title">📊 Variables</h2><div class="panel__controls"><button class="btn btn--icon panel-maximize-btn" title="Minimize" data-panel="variables">◱</button> <button class="btn btn--icon panel-toggle-btn" title="Collapse" data-panel="variables">−</button></div></div><div class="panel__body"><div id="variables-container" class="variables-container"><p class="placeholder">Run code to see variables</p></div></div></div><div class="panel panel--callstack panel--hidden" data-panel="callstack"><div class="panel__header"><h2 class="panel__title">📚 Call Stack</h2><div class="panel__controls"><button class="btn btn--icon panel-maximize-btn" title="Maximize" data-panel="callstack">⛶</button> <button class="btn btn--icon panel-toggle-btn" title="Collapse" data-panel="callstack">−</button></div></div><div class="panel__body"><div id="callstack-container" class="callstack-container"><p class="placeholder">Run code to see call stack</p></div></div></div><div class="panel panel--array panel--hidden" data-panel="array"><div class="panel__header"><h2 class="panel__title">📈 Array View</h2><div class="panel__controls"><button id="array-view-bars" class="btn btn--sm btn--active" title="Bar Chart">▊▊▊</button> <button id="array-view-boxes" class="btn btn--sm" title="Indexed Boxes">☐☐☐</button> <button class="btn btn--icon panel-maximize-btn" title="Maximize" data-panel="array">⛶</button> <button class="btn btn--icon panel-toggle-btn" title="Collapse" data-panel="array">−</button></div></div><div class="panel__body"><canvas id="array-canvas" class="array-canvas"></canvas></div></div><div class="panel panel--tree panel--hidden" data-panel="tree"><div class="panel__header"><h2 class="panel__title">🌳 Recursion Tree</h2><div class="panel__controls"><button class="btn btn--icon panel-maximize-btn" title="Maximize" data-panel="tree">⛶</button> <button class="btn btn--icon panel-toggle-btn" title="Collapse" data-panel="tree">−</button></div></div><div class="panel__body"><div id="tree-container" class="tree-container"><p class="placeholder">Run recursive code to see call tree</p></div></div></div><div class="panel panel--console panel--hidden" data-panel="console"><div class="panel__header"><h2 class="panel__title">🖥️ Console Output</h2><div class="panel__controls"><button id="clear-console" class="btn btn--sm">Clear</button> <button class="btn btn--icon panel-maximize-btn" title="Maximize" data-panel="console">⛶</button> <button class="btn btn--icon panel-toggle-btn" title="Collapse" data-panel="console">−</button></div></div><div class="panel__body"><div id="console-output" class="console-output"><p class="placeholder">Console output will appear here</p></div></div></div><div class="panel panel--performance panel--hidden" data-panel="performance"><div class="panel__header"><h2 class="panel__title">⚡ Performance Analysis</h2><div class="panel__controls"><button class="btn btn--icon panel-maximize-btn" title="Maximize" data-panel="performance">⛶</button> <button class="btn btn--icon panel-toggle-btn" title="Collapse" data-panel="performance">−</button></div></div><div class="panel__body"><div id="performance-container" class="performance-container"><div class="performance-section"><h3 class="performance-section__title">⏱️ Time Complexity</h3><div id="time-complexity" class="complexity-info"><div class="complexity-value">O(n)</div><div class="complexity-explanation"><p class="placeholder">Run code to see time complexity analysis</p></div></div></div><div class="performance-section"><h3 class="performance-section__title">💾 Space Complexity</h3><div id="space-complexity" class="complexity-info"><div class="complexity-value">O(n)</div><div class="complexity-explanation"><p class="placeholder">Run code to see space complexity analysis</p></div></div></div><div class="performance-section"><h3 class="performance-section__title">📊 Execution Metrics</h3><div id="execution-metrics" class="metrics-info"><div class="metric-row"><span class="metric-label">Execution Time:</span> <span id="execution-time" class="metric-value">-</span></div><div class="metric-row"><span class="metric-label">Total Steps:</span> <span id="total-steps" class="metric-value">-</span></div><div class="metric-row"><span class="metric-label">Function Calls:</span> <span id="function-calls" class="metric-value">-</span></div><div class="metric-row"><span class="metric-label">Max Call Stack Depth:</span> <span id="max-stack-depth" class="metric-value">-</span></div></div></div><div class="performance-section"><h3 class="performance-section__title">📝 Detailed Analysis</h3><div id="detailed-analysis" class="analysis-details"><p class="placeholder">Run code to see detailed performance analysis</p></div></div></div></div></div></section></main><footer class="control-bar"><div class="control-bar__section control-bar__section--playback"><button id="btn-reset" class="btn btn--control" title="Reset"><span class="btn__icon">🔄</span> <span class="btn__label">Reset</span></button> <button id="btn-step-back" class="btn btn--control" title="Step Back" disabled="disabled"><span class="btn__icon">⏮️</span> <span class="btn__label">Back</span></button> <button id="btn-play-pause" class="btn btn--control btn--primary" title="Play"><span class="btn__icon">▶️</span> <span class="btn__label">Run</span></button> <button id="btn-step-forward" class="btn btn--control" title="Step Forward" disabled="disabled"><span class="btn__icon">⏭️</span> <span class="btn__label">Step</span></button></div><div class="control-bar__section control-bar__section--speed"><label class="speed-label" for="speed-slider">Speed:</label> <input type="range" id="speed-slider" class="speed-slider" min="1" max="5" value="3" step="1"> <span id="speed-value" class="speed-value">Normal</span> <button id="turbo-toggle" class="btn btn--sm" title="Turbo Mode (2x speed)">🚀</button></div><div class="control-bar__section control-bar__section--info"><div class="step-info"><span id="current-step">Step: 0</span> <span class="step-separator">/</span> <span id="total-steps">0</span></div><div id="execution-status" class="execution-status">Ready</div></div></footer><div id="toast-container" class="toast-container"></div></div><script>// Hide skeleton loader when page is fully loaded
+    window.addEventListener('load', function() {
+      const skeletonLoader = document.getElementById('skeleton-loader');
+      if (skeletonLoader) {
+        // Small delay to ensure styles are applied
+        setTimeout(() => {
+          skeletonLoader.classList.add('hidden');
+        }, 100);
+      }
+    });</script></body></html>

@@ -1,0 +1,29 @@
+/*! ../original-repo/acorn */
+
+/*! ../original-repo/interpreter */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */
+
+/*! vm */
+
+/*!*********************!*\
+  !*** external "vm" ***!
+  \*********************/
+
+/*!*******************************!*\
+  !*** ./src/js-interpreter.js ***!
+  \*******************************/
+
+/*!********************************!*\
+  !*** ./original-repo/acorn.js ***!
+  \********************************/
+
+/*!**************************************!*\
+  !*** ./original-repo/interpreter.js ***!
+  \**************************************/
+
+/**
+ * @license
+ * Copyright 2013 Neil Fraser
+ * SPDX-License-Identifier: Apache-2.0
+ */
