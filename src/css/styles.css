@@ -1,0 +1,9 @@
+/* ===================================
+   JS Code Visualizer - Main Stylesheet
+   Imports all modular CSS files
+   =================================== */
+
+@import './base.css';
+@import './components.css';
+@import './layout.css';
+@import './panels.css';

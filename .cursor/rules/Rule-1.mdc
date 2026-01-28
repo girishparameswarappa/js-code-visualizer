@@ -1,0 +1,29 @@
+---
+alwaysApply: true
+---
+
+## Components
+
+- Use function components for all React components.
+- Use TypeScript for type safety.
+- Use `useState` and `useEffect` hooks for state management and side effects.
+- Use `useRouter` from `next/router` for navigation.
+- Use `import { useContentStore } from '../store/contentStore';` to access the content store to display content.
+- Break components into smaller, reusable parts.
+- place components in the `components/` directory.
+
+## Styles
+
+- Use plain CSS files for styling.
+- Use CSS modules for component-specific styles.
+- Use BEM (Block Element Modifier) naming convention for CSS classes.
+- Avoid using inline styles; use CSS classes instead.
+- place styles in the `styles/` directory.
+
+## Refactoring
+
+- Refactor components to be more modular and reusable.
+- Extract common logic into custom hooks.
+- Use utility functions for repeated logic.
+- Avoid deep nesting of components; keep the component tree flat.
+- Use `React.Fragment` to group elements without adding extra nodes to the DOM.

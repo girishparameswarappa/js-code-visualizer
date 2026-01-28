@@ -1,0 +1,16 @@
+---
+alwaysApply: true
+---
+
+## Code Suggestions
+
+- Use `const` for variables that do not change.
+- Use `let` only when the variable needs to be reassigned.
+- Use `async/await` for asynchronous operations.
+- Use template literals for string concatenation.
+- Reuse css classes instead of creating new ones for similar styles.
+- Add css classes in their respective component css files if any new ones are added.
+- Use arrow functions for concise function expressions.
+- Use destructuring for props and state to improve readability.
+- Creative and innovative solutions are encouraged, but they should be practical and maintainable.
+- Avoid using third-party libraries unless absolutely necessary; prefer built-in features of React and Next.js.

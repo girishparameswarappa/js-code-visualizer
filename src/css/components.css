@@ -1,0 +1,214 @@
+/* ===================================
+   Components - Buttons, Select, Slider, Toast
+   =================================== */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--color-border);
+  border-color: var(--color-text-muted);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.btn--control {
+  flex-direction: column;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  min-width: 60px;
+}
+
+.btn__icon {
+  font-size: 1.25rem;
+}
+
+.btn__label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.btn--primary .btn__label {
+  color: var(--color-bg);
+}
+
+.btn--sm {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 12px;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+.btn--icon {
+  padding: var(--spacing-xs);
+  min-width: 28px;
+  min-height: 28px;
+  font-size: 16px;
+}
+
+.btn--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+/* Select */
+.select {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  min-height: 36px;
+}
+
+.select:hover {
+  border-color: var(--color-text-muted);
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* Speed Slider */
+.speed-label {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.speed-slider {
+  width: 120px;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--color-bg-tertiary);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.speed-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.speed-value {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  min-width: 60px;
+}
+
+/* Step Info */
+.step-info {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.step-separator {
+  color: var(--color-text-muted);
+  margin: 0 var(--spacing-xs);
+}
+
+/* Execution Status */
+.execution-status {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+.execution-status--running {
+  background: rgba(88, 166, 255, 0.2);
+  color: var(--color-primary);
+}
+
+.execution-status--paused {
+  background: rgba(210, 153, 34, 0.2);
+  color: var(--color-warning);
+}
+
+.execution-status--completed {
+  background: rgba(63, 185, 80, 0.2);
+  color: var(--color-success);
+}
+
+.execution-status--error {
+  background: rgba(248, 81, 73, 0.2);
+  color: var(--color-danger);
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  z-index: 1000;
+}
+
+.toast {
+  padding: var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  animation: slideIn var(--transition-normal);
+  max-width: 350px;
+}
+
+.toast--warning { border-color: var(--color-warning); }
+.toast--error { border-color: var(--color-danger); }
+.toast--success { border-color: var(--color-success); }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}

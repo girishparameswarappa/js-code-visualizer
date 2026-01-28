@@ -1,0 +1,12 @@
+---
+alwaysApply: true
+---
+
+## Code Patterns
+
+- **Factory Pattern:** Use `createApp()` to instantiate the Express app for testability
+- **Dependency Injection:** Pass config/services as needed, avoid global state
+- **Async/Await:** All async code should use async/await, never callbacks
+- **Type Safety:** Always annotate types for function arguments and return values
+- **No Magic Strings:** Use enums or config constants
+- **Testing:** Use Jest + Supertest for all HTTP endpoint tests
