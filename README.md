@@ -2,6 +2,8 @@
 
 An interactive JavaScript code execution visualizer with step-by-step debugging, variable inspection, call stack display, and recursion tree visualization.
 
+Live URL: https://girishparameswarappa.github.io/js-code-visualizer/
+
 ## Features
 
 - **Step-by-step execution**: Watch your JavaScript code execute line by line
